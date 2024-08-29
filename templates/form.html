@@ -1,0 +1,31 @@
+<form method="post" action="{%url 'profile'%}">
+    {%csrf_token%}
+    <div style="margin-bottom: 10px;">
+        <label for="firstname" id="lastname" style="display: inline-block; margin-right: 20px;">Firstname</label>
+        <input type="text" name="firstname"
+            style="display: inline-block; width: 50%; outline: none; border-radius: 5px; padding: 20px; border: 2px solid blue;">
+    </div>
+    <div style="margin-bottom: 10px;">
+        <label for="lastname" id="lastname" style="display: inline-block; margin-right: 20px;">Lastname</label>
+        <input type="text" name="lastname"
+            style="display: inline-block; width: 50%; outline: none; border-radius: 5px; padding: 20px; border: 2px solid blue;">
+    </div>
+    <div style="margin-bottom: 10px;">
+        <label for="email" id="email" style="display: inline-block; margin-right: 20px;">Email</label>
+        <input type="email" name="email"
+            style="display: inline-block; width: 50%; outline: none; border-radius: 5px; padding: 20px; border: 2px solid blue;">
+    </div>
+    <div style="margin-bottom: 10px;">
+        <label for="username" style="display: inline-block; margin-right: 20px;">Username</label>
+        <input type="text" name="username"
+            style="display: inline-block; width: 50%; outline: none; border-radius: 5px; padding: 20px; border: 2px solid blue;">
+    </div>
+    <div style="margin-bottom: 10px;">
+        <label for="password" style="display: inline-block; margin-right: 20px;">Password</label>
+        <input type="password" name="password"
+            style="display: inline-block; width: 50%; outline: none; border-radius: 5px; padding: 20px; border: 2px solid blue;">
+    </div>
+    <button type="submit"
+        style="background-color: blue; color: white; padding: 15px; outline: none ; border: none; border-radius: 5px; cursor: pointer; display: block; margin: 0 auto;">
+        Submit</button>
+</form>

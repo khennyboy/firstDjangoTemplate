@@ -1,0 +1,63 @@
+{%extends 'base.html'%}
+{% load humanize %}
+{% load static %}
+
+{%block content%}
+<link rel="stylesheet" href="{%static 'css/styles.css'%}">
+<h2>Add A New Todo</h2>
+<form action="{%url 'todo'%}" method="POST">
+    {%csrf_token%}
+    <input type="text" name="item">
+    <button type="submit" style="background-color: blue;">Add Todo</button>
+</form>
+{%if messages%}
+{%for message in messages%}
+<p class="{{message.tags}}">{{message|safe}}</p>
+{%endfor%}
+{%endif%}
+<h2>Todo List ({{count}})</h2>
+<div style="overflow-x: auto; margin-top: 4rem; margin-bottom: 4rem;">
+    <table>
+        <caption style="caption-side: bottom; margin-top: 10px;">Todo list table</caption>
+        <thead>
+            <th>S/N.</th>
+            <th>Tasks</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            {%for todo in todo_list%}
+            <tr>
+                <td></td>
+                <td>{{todo.title}}</td>
+                <td>{{todo.date}}</td>
+                <td>
+                    <div class="actionButton">
+                        {%if todo.done%}
+                        <form action="{%url 'update_todo' todo.id%}" method="POST">
+                            {%csrf_token%}
+                            <button type="submit" class="done-btn">Mark As UnDone</button>
+                        </form>
+                        {%else%}
+                        <form action="{%url 'update_todo' todo.id%}" method="POST">
+                            {%csrf_token%}
+                            <button type="submit" class="undone-btn">Mark As Done</button>
+                        </form>
+                        {%endif%}
+                        <a href="{%url 'edit_todo' todo.id%}" class="edit-btn">Edit</a>
+                        <form action="{%url 'delete_todo' todo.id%}" method="POST">
+                            {%csrf_token%}
+                            <button type="submit" class="delete-btn">Delete</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            {%empty%}
+            <tr>
+                <p>No todo list added yet.</p>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</div>
+{%endblock%}

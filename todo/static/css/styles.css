@@ -1,0 +1,81 @@
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+  counter-reset: todo;
+}
+
+tr td:first-child::after{
+    counter-increment: todo;
+    content: counter(todo)".";
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+    width: fit-content;
+    margin: 0 auto;
+  }
+  table th{
+    background-color: #f2f2f2;
+  }
+ tr, td, th{
+  border: 1px solid #ddd;
+ }
+
+  th, td {
+    text-align: left;
+    padding: 16px;
+  }
+ 
+  .success {
+        background: green;
+        padding: 10px;
+        color: white
+    }
+
+    .error {
+        background: red;
+        padding: 10px;
+        color: #fff
+    }
+    button{
+      padding: 8px 20px;
+      display: inline-block;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      outline: none;
+      border-radius: 5px;
+      border: none;
+      min-width: 130px;
+      cursor: pointer;
+    }
+   
+    .done-btn {
+      background: green;
+    }
+    .undone-btn {
+      background: yellow;
+      color: #000 !important;
+    }
+    .delete-btn {
+      background: red;
+    }
+  .actionButton{
+      display: flex;
+      gap: 5px;
+      justify-content: space-between;
+    }
+ 
+    .edit-btn {
+      background-color: blue;
+        text-decoration: none;
+      color: white;
+      display: inline-block;
+    }
+    
